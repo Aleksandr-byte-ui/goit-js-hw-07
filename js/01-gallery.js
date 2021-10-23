@@ -4,7 +4,6 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 
-
 const galleryContainer = document.querySelector('.gallery');
 
 const imgMarkUp = renderGallery(galleryItems);
@@ -13,14 +12,14 @@ galleryContainer.insertAdjacentHTML('beforeend', imgMarkUp);
 
 function renderGallery(items) {
   return items
-    .map(item => {
+    .map(({ preview, original, description }) => {
       return `<div class="gallery__item">
-            <a class="gallery__link" href=" ">
+            <a class="gallery__link" href="${original}">
                 <img
                     class="gallery__image"
-                    src=" "
-                    data-source=" "
-                    alt=" "
+                    src="${preview}"
+                    data-source="${original}"
+                    alt="${description}"
                 />
              </a>
         </div>`;
